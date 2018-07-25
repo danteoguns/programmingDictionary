@@ -1,10 +1,11 @@
-package com.qa.persistence;
+/*package com.qa.persistence;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
+
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qa.utility.JSONUtility;
 
@@ -17,8 +18,7 @@ public class DictionaryDBRepo implements IDictionary {
 	@PersistenceContext(unitName = "primary")
 	private EntityManager em;
 
-	public String getDefinition(String key) {
-		// TODO Auto-generated method stub
+	public String getDefinition(String key) { 
 		return null;
 	}
 
@@ -28,3 +28,4 @@ public class DictionaryDBRepo implements IDictionary {
 	}
 
 }
+*/
