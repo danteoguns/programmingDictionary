@@ -1,37 +1,46 @@
 package com.qa.backend.persistence;
 
-import java.util.Collection;
+import java.util.HashMap;
 
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
+//import java.util.Collection;
 
-import com.qa.backend.domain.Dictionary;
-import com.qa.backend.utility.JSONUtility;
+//import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
-@Component
-public class DictionaryService implements IDictionary{
+// import com.qa.backend.domain.Dictionary;
+// import com.qa.backend.utility.JSONUtility;
+
+@Service
+public class DictionaryService implements IDictionary {
+
+
+//	private Dictionary dictionary;
+//  private JSONUtility util;
 	
-private static final Logger LOG = Logger.getLogger(DictionaryService.class);
+	HashMap<String, String> outsideDefinitions = new HashMap<>(); {
+		outsideDefinitions.put("String", "Collection of characters, can be either number of letters");
+		outsideDefinitions.put("Integer", "whole numbers without a decimal point");
+		outsideDefinitions.put("Array", "A collection of a common type of data. ");
+		outsideDefinitions.put("POJO", "Plain Old Java Object");
+	}
 
-	private Dictionary dictionary;
-	private JSONUtility util;
-	
 	@Override
 	public String getDefinition(String key) {
-		LOG.info("service for method getDefinition");
-		return dictionary.getDefinition(key);
+		return outsideDefinitions.get(key);
+//		return dictionary.getDefinition(key);
 	}
 
 	@Override
-	public Collection<String> getAllDefinitions() {
-		LOG.info("service for method getAllDefinition");
-		return dictionary.getDefinitions().values();
+	public HashMap<String, String> getAllDefinitions() {
+		return outsideDefinitions;
+
+//		return util.getJSONForObject(dictionary.getAllDefinitions().values());
 	}
-	
+
 	@Override
 	public String test() {
-		LOG.info("service for test method");
-		return "test String. connection successful";
+		return "this test should work";
+//		return dictionary.test();
 	}
 
 }

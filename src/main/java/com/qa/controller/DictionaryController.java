@@ -1,11 +1,10 @@
 package com.qa.controller;
 
-import java.util.Collection;
+import java.util.HashMap;
 
-import javax.ws.rs.PathParam;
-
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,32 +14,26 @@ import com.qa.backend.persistence.IDictionary;
 @RequestMapping("/dictionary")
 @RestController
 public class DictionaryController {
-
-	@Autowired
-	private static final Logger LOG = Logger.getLogger(DictionaryController.class);
 	
 	@Autowired
 	private IDictionary service;
 	
 	@RequestMapping("/get-definition/{key}")
 	@ResponseBody
-	public String getDefinition(@PathParam ("key") String key) {	
-		LOG.info("front end method for get definition");
-		return service.getDefinition(key);
+	public String getDefinition(@PathVariable String key) {	
+		return key + ": " + service.getDefinition(key) + "\n";
 	}
 	
 	
-	@RequestMapping("/get-all-definitions")
+	@GetMapping("/get-all-definitions")
 	@ResponseBody
-	public Collection<String> getAllDefinitions() {
-		LOG.info("front end method for get all definition");
-		return service.getAllDefinitions();
+	public String getAllDefinitions() {
+		return service.getAllDefinitions() + "\n";
 	}
 	
-	@RequestMapping("/test")
+	@GetMapping("/test")
 	@ResponseBody
 	public String test() {
-		LOG.info("front end method for test method");
 		return service.test();
 	}
 

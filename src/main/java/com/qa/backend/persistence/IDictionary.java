@@ -1,15 +1,12 @@
 package com.qa.backend.persistence;
 
-import java.util.Collection;
+import java.util.HashMap;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public interface IDictionary {
 
 	String getDefinition(String key);
 
-	Collection<String> getAllDefinitions();
+	HashMap<String, String> getAllDefinitions();
 	
 	String test();
 
