@@ -1,6 +1,9 @@
-com/qa/persistence/IDictionary.class
-com/qa/utility/JSONUtility.class
-com/qa/controller/Controller.class
+com/qa/backend/domain/Dictionary.class
+com/qa/backend/persistence/IDictionary.class
+com/qa/controller/DictionaryController.class
 com/qa/Application.class
-com/qa/domain/Dictionary.class
+com/qa/backend/utility/JSONUtility.class
+com/qa/backend/persistence/DictionaryService.class
+com/qa/interoperability/DictionaryEndPoint.class
 com/qa/constants/Constants.class
+com/qa/interoperability/JaxActivator.class

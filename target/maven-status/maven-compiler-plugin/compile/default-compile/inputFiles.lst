@@ -1,7 +1,9 @@
+/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/interoperability/JaxActivator.java
+/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/backend/domain/Dictionary.java
+/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/backend/utility/JSONUtility.java
 /home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/constants/Constants.java
-/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/controller/Controller.java
-/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/persistence/DictionaryDBRepo.java
-/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/persistence/IDictionary.java
-/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/utility/JSONUtility.java
+/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/backend/persistence/IDictionary.java
+/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/backend/persistence/DictionaryService.java
 /home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/Application.java
-/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/domain/Dictionary.java
+/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/interoperability/DictionaryEndPoint.java
+/home/dan/Programming/EclipseProjects/firstGroupProject/technicaldictionary/src/main/java/com/qa/controller/DictionaryController.java

@@ -14,24 +14,29 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class Dictionary {
 	
-	@JsonProperty("id")
-	private long id;
 	@JsonProperty("definitions")
 	private HashMap<String, String> definitions;
 
 	
 	public Dictionary () {
 		
-	}
+		definitions = new HashMap<>();
+		definitions.put("String", "Collection of characters which can be letters and numeric.");
+		definitions.put("Int", "A data type used for whole numeric values");
 
-	@JsonProperty("id")
-	public long getId() {
-		return id;
+		
 	}
 	
 	@JsonProperty("definitions")
 	public HashMap<String, String> getDefinitions() {
 		return definitions;
 	}
+	
+	@JsonProperty("definitions")
+	public String getDefinition(String key) {
+		return definitions.get(key);
+	}
+	
+	
 
 }
