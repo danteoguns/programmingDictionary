@@ -1,7 +1,5 @@
 package com.qa.controller;
 
-import java.util.HashMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,12 +27,6 @@ public class DictionaryController {
 	@ResponseBody
 	public String getAllDefinitions() {
 		return service.getAllDefinitions() + "\n";
-	}
-	
-	@GetMapping("/test")
-	@ResponseBody
-	public String test() {
-		return service.test();
 	}
 
 }

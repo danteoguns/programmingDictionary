@@ -22,6 +22,10 @@ public class Dictionary {
 		definitions = new HashMap<>();
 		definitions.put("String", "Collection of characters which can be letters and numeric.");
 		definitions.put("Int", "A data type used for whole numeric values");
+		definitions.put("String", "Collection of characters, can be either number of letters");
+		definitions.put("Integer", "whole numbers without a decimal point");
+		definitions.put("Array", "A collection of a common type of data. ");
+		definitions.put("POJO", "Plain Old Java Object");
 
 	}
 
@@ -34,18 +38,11 @@ public class Dictionary {
 	public String getDefinition(String key) {
 		return definitions.get(key);
 	}
-
-	@JsonProperty("definitions")
-	public String getAllDefinitionsTest() {
-		for (String key : definitions.keySet()) {
-			System.out.println(key + ": " + definitions.get(key));
-		}
-		return "technical definitions";
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
-
-	@JsonProperty("test")
-	public String test() {
-		return "test String. connection successful";
-	}
-
 }
+
