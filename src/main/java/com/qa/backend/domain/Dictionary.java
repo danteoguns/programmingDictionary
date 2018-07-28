@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -44,7 +43,6 @@ public class Dictionary {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return super.toString();
 	}
 
@@ -60,9 +58,10 @@ public class Dictionary {
 
 	private HashMap<String, String> readFile() {
 
-		String key = "", value = "";
+		String key = "";
+		String value = "";
 
-		while (reader.hasNextLine()) {
+		while (reader.hasNext()) {
 			key = reader.next();
 			value = reader.nextLine();
 			definitions.put(key, value);
