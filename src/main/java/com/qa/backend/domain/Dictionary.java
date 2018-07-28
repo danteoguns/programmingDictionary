@@ -1,7 +1,11 @@
 package com.qa.backend.domain;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,15 +21,14 @@ public class Dictionary {
 	@JsonProperty("definitions")
 	private HashMap<String, String> definitions;
 
+	private Scanner reader;
+
 	public Dictionary() {
 
-		definitions = new HashMap<>();
-		definitions.put("String", "Collection of characters which can be letters and numeric.");
-		definitions.put("Int", "A data type used for whole numeric values");
-		definitions.put("String", "Collection of characters, can be either number of letters");
-		definitions.put("Integer", "whole numbers without a decimal point");
-		definitions.put("Array", "A collection of a common type of data. ");
-		definitions.put("POJO", "Plain Old Java Object");
+		definitions = new HashMap<String, String>();
+		openFile();
+		readFile();
+		reader.close();
 
 	}
 
@@ -38,11 +41,34 @@ public class Dictionary {
 	public String getDefinition(String key) {
 		return definitions.get(key);
 	}
-	
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
-}
 
+	private void openFile() {
+
+		try {
+			reader = new Scanner(new File("dictionary.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	private HashMap<String, String> readFile() {
+
+		String key = "", value = "";
+
+		while (reader.hasNextLine()) {
+			key = reader.next();
+			value = reader.nextLine();
+			definitions.put(key, value);
+		}
+		return definitions;
+
+	}
+
+}

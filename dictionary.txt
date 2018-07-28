@@ -1,0 +1,4 @@
+string Collection of characters which can be letters and numeric.
+integer A data type used for whole numeric values.
+array A collection of a common type of data.
+pojo Plain Old Java Object.
