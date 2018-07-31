@@ -1,11 +1,15 @@
 package com.qa.backend.persistence;
 
 import java.util.HashMap;
+import java.util.List;
+
+import com.qa.backend.domain.GlossaryEntry;
+
 
 public interface IDictionary {
 
-	String getDefinition(String key);
+	GlossaryEntry getDefinition(String key);
 
-	HashMap<String, String> getAllDefinitions();
+	List<GlossaryEntry> getAllDefinitions();
 
 }

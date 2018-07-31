@@ -2,7 +2,9 @@ package com.qa.backend.domain;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.stereotype.Component;
@@ -17,28 +19,35 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @Component
 public class Dictionary {
 
-	@JsonProperty("definitions")
-	private HashMap<String, String> definitions;
+	//@JsonProperty("definitions")
+	//private HashMap<Keyword, Definition> definitions;
+	List<GlossaryEntry> definitions;
 
 	private Scanner reader;
 
 	public Dictionary() {
 
-		definitions = new HashMap<String, String>();
+		definitions = new ArrayList<>();
 		openFile();
 		readFile();
 		reader.close();
 
 	}
 
-	@JsonProperty("definitions")
-	public HashMap<String, String> getAllDefinitions() {
+	//@JsonProperty("definitions")
+	public List<GlossaryEntry> getAllDefinitions() {
 		return definitions;
 	}
 
-	@JsonProperty("definitions")
-	public String getDefinition(String key) {
-		return definitions.get(key);
+	//@JsonProperty("definitions")
+	public GlossaryEntry getDefinition(String key) {
+		GlossaryEntry result = null;
+		for(GlossaryEntry ge: definitions) {
+			if(ge.getKeyword().equalsIgnoreCase(key)) {
+				result = ge;
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -56,7 +65,7 @@ public class Dictionary {
 
 	}
 
-	private HashMap<String, String> readFile() {
+	private void readFile() {
 
 		String key = "";
 		String value = "";
@@ -64,9 +73,8 @@ public class Dictionary {
 		while (reader.hasNext()) {
 			key = reader.next();
 			value = reader.nextLine();
-			definitions.put(key, value);
+			definitions.add(new GlossaryEntry(key,value));
 		}
-		return definitions;
 
 	}
 
