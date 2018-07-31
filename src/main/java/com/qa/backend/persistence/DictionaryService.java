@@ -16,12 +16,12 @@ public class DictionaryService implements IDictionary {
 
 	@Override
 	public String getDefinition(String key) {
-		return dictionary.getDefinition(key);
+		return util.getJSONForObject(dictionary.getDefinition(key));
 	}
 
 	@Override
 	public String getAllDefinitions() {
-		return dictionary.getAllDefinitions().toString();
+		return util.getJSONForObject(dictionary.getAllDefinitions().toString());
 	}
 
 
