@@ -1,5 +1,0 @@
-answers in a boolean format.
-questions check whether the answer is true or false.
-store correct answer as its own method return type.
-pass that answer as an arguement
-check if value matches correct answer
