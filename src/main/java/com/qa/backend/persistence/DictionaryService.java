@@ -1,5 +1,7 @@
 package com.qa.backend.persistence;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,16 +14,15 @@ public class DictionaryService implements IDictionary {
 	@Autowired
 	private Dictionary dictionary;
 
-	private JSONUtility util;
 
 	@Override
 	public String getDefinition(String key) {
-		return util.getJSONForObject(dictionary.getDefinition(key));
+		return dictionary.getDefinition(key);
 	}
 
 	@Override
-	public String getAllDefinitions() {
-		return util.getJSONForObject(dictionary.getAllDefinitions().toString());
+	public HashMap<String, String>  getAllDefinitions() {
+		return dictionary.getAllDefinitions();
 	}
 
 

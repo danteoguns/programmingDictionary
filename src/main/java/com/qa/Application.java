@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import com.qa.backend.utility.JSONUtility;
+
 @SpringBootApplication(scanBasePackages = "com.qa")
 public class Application {
 	
@@ -32,8 +34,8 @@ public class Application {
 	}
 	
 	@Bean
-	RestTemplate restTemplate() {
-		return new RestTemplate();
+	JSONUtility restTemplate() {
+		return new JSONUtility();
 	}
 	
 	public static String gettopicExchangeName() {

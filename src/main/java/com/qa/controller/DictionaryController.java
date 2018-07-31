@@ -1,5 +1,7 @@
 package com.qa.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,14 +21,14 @@ public class DictionaryController {
 	@RequestMapping("/get-definition/{key}")
 	@ResponseBody
 	public String getDefinition(@PathVariable String key) {	
-		return key + ": " + service.getDefinition(key) + "\n";
+		return "{\"" + key + "\":\"" + service.getDefinition(key) + "\"}";
 	}
 	
 	
 	@GetMapping("/get-all-definitions")
 	@ResponseBody
-	public String getAllDefinitions() {
-		return service.getAllDefinitions() + "\n";
+	public HashMap<String, String>  getAllDefinitions() {
+		return service.getAllDefinitions();
 	}
 
 }
